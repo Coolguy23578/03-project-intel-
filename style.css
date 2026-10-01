@@ -261,6 +261,23 @@ main {
   margin-bottom: 10px;
 }
 
+.priority-icon {
+  color: var(--deep-blue);
+  margin-inline-end: 0.5em;
+}
+
+.priority-link {
+  color: var(--deep-blue);
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.priority-link:focus-visible {
+  outline: 3px solid var(--deep-blue);
+  outline-offset: 3px;
+}
+
 @media (max-width: 650px) {
   .hero {
     padding-left: 20px;
