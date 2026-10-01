@@ -1,0 +1,328 @@
+:root {
+  --intel-blue: #0071c5;
+  --deep-blue: #003c71;
+  --ink: #172b3a;
+  --muted: #60717d;
+  --pale-blue: #eaf6fb;
+  --line: #cdd9e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Set the page's basic colors, spacing, and font. */
+body {
+  background: #f4f7f8;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Use a strong blue hero to make the Intel identity clear right away. */
+.hero {
+  background: linear-gradient(120deg, #002f5f 0%, var(--deep-blue) 55%, #0068ae 100%);
+  color: #ffffff;
+  overflow: hidden;
+  padding: 32px max(28px, calc((100% - 1100px) / 2));
+  position: relative;
+}
+
+.hero-content {
+  max-width: 760px;
+  padding: 44px 0 52px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero img {
+  background: #ffffff;
+  height: 26px;
+  padding: 8px 12px;
+  width: auto;
+}
+
+.eyebrow {
+  color: var(--intel-blue);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #8ed7ff;
+  margin-top: 44px;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 58px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero-description {
+  color: #d6e8f3;
+  font-size: 20px;
+  max-width: 680px;
+}
+
+.hero::after {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  content: "";
+  height: 420px;
+  position: absolute;
+  right: -130px;
+  top: -210px;
+  width: 420px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+nav a {
+  border-bottom: 2px solid transparent;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  border-color: #8ed7ff;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 72px 28px;
+}
+
+.section-heading {
+  margin-bottom: 36px;
+  max-width: 640px;
+}
+
+.section-heading h2,
+.goals-section h2 {
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-heading > p:last-child,
+.goals-section > p:last-child {
+  color: var(--muted);
+}
+
+/* The timeline scrolls horizontally on larger screens. */
+.timeline {
+  border-top: 2px solid var(--line);
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 42px 0 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.milestone-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  flex: 0 0 240px;
+  min-height: 330px;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.milestone-card:hover,
+.milestone-card:focus-within {
+  box-shadow: 0 14px 30px rgba(0, 60, 113, 0.16);
+  transform: translateY(-8px);
+}
+
+.milestone-card::before {
+  background: var(--intel-blue);
+  border: 5px solid #f4f7f8;
+  border-radius: 50%;
+  content: "";
+  height: 14px;
+  left: 50%;
+  position: absolute;
+  top: -53px;
+  transform: translateX(-50%);
+  width: 14px;
+  z-index: 1;
+}
+
+.milestone-card img {
+  display: block;
+  height: 145px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.milestone-card:hover img,
+.milestone-card:focus-within img {
+  transform: scale(1.06);
+}
+
+.milestone-content {
+  padding: 20px;
+}
+
+.milestone-year {
+  color: var(--intel-blue);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.milestone-content h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+/* Details appear when the user hovers or focuses a milestone. */
+.milestone-details {
+  background: var(--deep-blue);
+  bottom: 0;
+  color: #ffffff;
+  left: 0;
+  opacity: 0;
+  padding: 18px 20px;
+  position: absolute;
+  right: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.milestone-details p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.milestone-card:hover .milestone-details,
+.milestone-card:focus-within .milestone-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.goals-section {
+  background: var(--pale-blue);
+  border-left: 5px solid var(--intel-blue);
+  margin-top: 72px;
+  max-width: 700px;
+  padding: 34px;
+}
+
+.goals-section .eyebrow {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-content {
+    padding: 28px 0 36px;
+  }
+
+  h1 {
+    font-size: 40px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-description {
+    font-size: 17px;
+  }
+
+  main {
+    padding: 48px 20px;
+  }
+
+  .section-heading h2,
+  .goals-section h2 {
+    font-size: 30px;
+  }
+
+  .timeline {
+    border-left: 2px solid var(--line);
+    border-top: 0;
+    display: block;
+    overflow-x: visible;
+    padding: 0 0 0 26px;
+    scroll-snap-type: none;
+  }
+
+  .milestone-card {
+    margin-bottom: 24px;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .milestone-card::before {
+    left: -37px;
+    top: 30px;
+    transform: none;
+  }
+
+  .milestone-card img {
+    height: 170px;
+  }
+
+  /* Phones do not have hover, so milestone descriptions stay readable. */
+  .milestone-details {
+    opacity: 1;
+    position: static;
+    transform: none;
+  }
+
+  .goals-section {
+    margin-top: 48px;
+    padding: 26px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero img {
+    max-width: calc(100% - 24px);
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
